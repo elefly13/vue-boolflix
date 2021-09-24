@@ -23,26 +23,30 @@ export default {
   },
   data() {
     return {
-      APIUrl: "https://api.themoviedb.org/3/search/movie?api_key=4be4eac11184cea75c396dce4c83f5b5&query=ritorno%20al%20futuro",
+      APIUrl: "https://api.themoviedb.org/3/search/movie?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       moviesList: [],
-      searchText: "",
+      searchText: "Rick",
     }
   },
   created() {
     this.getMovies();
   },
+ 
   methods: {
     getMovies() {
       axios
-        .get(this.APIUrl)
+        .get(this.APIUrl+this.searchText)
         .then( result => {
-          console.log(result)
+          
           this.moviesList = result.data.results;
+          console.log(this.moviesList);
         })
     },
     searchMovie(text) {
-      console.log(text);
+      
       this.searchText = text;
+      console.log(this.searchText);
+      this.getMovies();
     }
     
   }
