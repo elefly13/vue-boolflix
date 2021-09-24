@@ -1,6 +1,24 @@
 <template>
 <div>
-  
+  <div class="box ">
+    <div class="line ">
+      <h1>BOOLFLIX</h1>
+      <div class="cerca">
+        <input 
+          type="text"
+          placeholder="Cerca ..."
+          v-model="inputText"
+
+        >
+        <button
+          type="submit"
+          @click.prevent="$emit('performSearch', inputText)"
+          >Cerca
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
   
@@ -9,11 +27,34 @@
 <script>
 export default {
   name: 'Header',
- 
+  data() {
+    return {
+      inputText: '',
+    }
+  }
+  
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import "../style/general.scss";
+@import "../style/vars.scss";
+
+.box {
+  width: 100vw;
+  height: 130px;
+  background-color: $secondo;
+    .line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 130px;
+      padding: 0 50px;
+        h1 {
+          color: red;
+        }
+    }
+}
 
 </style>
