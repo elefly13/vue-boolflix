@@ -24,13 +24,14 @@ export default {
   data() {
     return {
       APIUrl: "https://api.themoviedb.org/3/search/movie?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
+      APIUrlTV: "https://api.themoviedb.org/3/search/tv?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       moviesList: [],
-      searchText: "Rick",
+      searchText: "Breaking bad",
     }
   },
   created() {
     this.getMovies();
-    // this.getSerieTv();
+    this.getSerieTv();
   },
  
   methods: {
@@ -43,15 +44,15 @@ export default {
           console.log(this.moviesList);
         })
     },
-    // getSerieTv() {
-    //   axios
-    //     .get(this.APIUrl+this.searchText)
-    //     .then( result => {
+    getSerieTv() {
+      axios
+        .get(this.APIUrlTV+this.searchText)
+        .then( result => {
           
-    //       this.moviesList = result.data.results;
-    //       console.log(this.moviesList);
-    //     })
-    // },
+          this.moviesList = result.data.results;
+          console.log(this.moviesList);
+        })
+    },
     searchMovie(text) {
       
       this.searchText = text;
