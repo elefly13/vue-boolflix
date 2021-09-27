@@ -2,13 +2,16 @@
 <div>
   <div class="box ">
     <div class="line ">
+      <a href="/">
       <h1>BOOLFLIX</h1>
+      </a>
+      
       <div class="cerca">
         <input 
           type="text"
           placeholder="Cerca ..."
           v-model="inputText"
-
+          @keyup.enter="$emit('performSearch', inputText)"
         >
         <button
           type="submit"
@@ -51,9 +54,13 @@ export default {
       align-items: center;
       height: 130px;
       padding: 0 50px;
-        h1 {
-          color: red;
+        a {
+          text-decoration: none;
+            h1 {
+              color: red;
+            }
         }
+        
     }
 }
 

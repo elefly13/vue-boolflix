@@ -2,9 +2,9 @@
   <div id="app">
     <Header @performSearch="searchMovie"/>
     <div class="container">
-      <div v-for="(movie, index) in moviesList" :key="index" class="row">
-        <Main  :info="movie"/>
-      </div>
+    <div  class="row">
+      <Main  :info="moviesList"/>
+    </div>
     </div>
     
   </div>
@@ -30,6 +30,7 @@ export default {
   },
   created() {
     this.getMovies();
+    // this.getSerieTv();
   },
  
   methods: {
@@ -42,6 +43,15 @@ export default {
           console.log(this.moviesList);
         })
     },
+    // getSerieTv() {
+    //   axios
+    //     .get(this.APIUrl+this.searchText)
+    //     .then( result => {
+          
+    //       this.moviesList = result.data.results;
+    //       console.log(this.moviesList);
+    //     })
+    // },
     searchMovie(text) {
       
       this.searchText = text;

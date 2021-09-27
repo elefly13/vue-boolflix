@@ -1,19 +1,26 @@
 <template>
-<div>
-  <div class="card">
-    <h3>{{info.title}}</h3>
-    <h3>{{info.original_title}}</h3>
-    <h3>{{info.original_language}}</h3>
-    <h3>{{info.vote_average}}</h3>
+<div class="container">
+  <div class="row">
+    <ul v-for="(inf, index) in info" :key="index">
+      <li>
+        <Card :key="index" :dati="inf"/>
+      </li>
+    </ul>
   </div>
+  
+  
 </div>
 
   
 </template>
 
 <script>
+import Card from './Card.vue'
 export default {
   name: 'Main',
+  components: {
+    Card
+  },
   props: ['info']
 }
 
