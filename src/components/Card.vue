@@ -6,11 +6,13 @@
     </div>
     <li>{{dati.title}}{{dati.name}}</li>
     <li>{{dati.original_title}}{{dati.original_name}}</li>
-    <li v-if="this.dati.original_language === this.flags.country">
-      <img :src="flags.flag" :alt="flags.country">
+    <li class="flag">
+      <img :src="require('../assets/img/'+ dati.original_language + '.png')" >
     </li>
-    <li v-else>{{dati.original_language}}</li>
-    <li>{{dati.vote_average}}</li>
+    <!-- <li v-else>{{dati.original_language}}</li> -->
+    <li >Voto: 
+      <i  v-for="index in Math.ceil(dati.vote_average / 2)" :key="index" class="fas fa-star"></i>{{dati.vote_average}}
+    </li>
   </div>
 </div>
 
@@ -24,50 +26,28 @@ export default {
 
   data() {
     return {
-        imgSRC: "https://image.tmdb.org/t/p/w342",
-        flags: [
-        {
-          country: "en",
-          flag: "../img/en.png"
-        },
-        {
-          country: "it",
-          flag: "../img/it.png"
-        },
-        {
-          country: "de",
-          flag: "../img/de.jpeg"
-        },
-        {
-          country: "fr",
-          flag: "../img/fr.jpeg"
-        },
-        
-      ]
+      imgSRC: "https://image.tmdb.org/t/p/w342",
+      
     }
     
   },
 
-  methods: {
-    getFlag() {
-      this.dati.original_language.map(element => {
-        if (element === this.flags.country) {
-          return this.flags.flag;
 
-        } else {
-          return this.dati.original_language;
-        } 
-      })
-     
-    }
-    
-  }
 }
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import "../style/general.scss";
+@import "../style/vars.scss";
 
+.flag {
+  width: 40px;
+  height: 40px;
+    img {
+      width: 100%;
+    }
+}
 
 </style>
