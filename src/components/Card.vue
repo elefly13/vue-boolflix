@@ -1,6 +1,9 @@
 <template>
 <div>
   <div class="card">
+    <div class="box_img">
+      <img :src="imgSRC+dati.poster_path" alt="">
+    </div>
     <li>{{dati.title}}{{dati.name}}</li>
     <li>{{dati.original_title}}{{dati.original_name}}</li>
     <li v-if="this.dati.original_language === this.flags.country">
@@ -21,6 +24,7 @@ export default {
 
   data() {
     return {
+        imgSRC: "https://image.tmdb.org/t/p/w342",
         flags: [
         {
           country: "en",
@@ -44,20 +48,20 @@ export default {
     
   },
 
-  // methods: {
-  //   getFlag() {
-  //     this.dati.original_language.map(element => {
-  //       if (element === this.flags.country) {
-  //         return this.flags.flag;
+  methods: {
+    getFlag() {
+      this.dati.original_language.map(element => {
+        if (element === this.flags.country) {
+          return this.flags.flag;
 
-  //       } else {
-  //         return this.dati.original_language;
-  //       } 
-  //     })
+        } else {
+          return this.dati.original_language;
+        } 
+      })
      
-  //   }
+    }
     
-  // }
+  }
 }
 
 </script>
