@@ -45,10 +45,13 @@ export default {
 @import "../style/vars.scss";
 
 .box {
+  position: relative;
+  top: 0;
   width: 100vw;
-  height: 130px;
+  height: 10vh;
   background-color: $secondo;
     .line {
+      
       display: flex;
       justify-content: space-between;
       align-items: center;

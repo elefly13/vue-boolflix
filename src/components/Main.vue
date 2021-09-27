@@ -1,11 +1,11 @@
 <template>
-<div class="container">
-  <div class="row">
-    <ul v-for="(inf, index) in info" :key="index">
-      <li>
+<div class="box_container">
+  <div class="bigbox_card">
+    <div class="box_card" v-for="(inf, index) in info" :key="index">
+      
         <Card :key="index" :dati="inf"/>
-      </li>
-    </ul>
+      
+    </div>
   </div>
   
   
@@ -28,6 +28,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.box_container {
+  width: 100vw;
+  height: 90vh;
+  margin: auto;
+    .bigbox_card {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+
+    }
+}
 
 
 </style>

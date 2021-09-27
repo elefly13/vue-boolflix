@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header @performSearch="searchMovie"/>
-    <div class="container">
-    <div  class="row">
+    <div class="box_container">
+    <div  >
       <Main  :info="moviesList"/>
     </div>
     </div>
@@ -26,7 +26,7 @@ export default {
       APIUrl: "https://api.themoviedb.org/3/search/movie?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       APIUrlTV: "https://api.themoviedb.org/3/search/tv?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       moviesList: [],
-      searchText: "Breaking bad",
+      searchText: "Fast",
     }
   },
   created() {
