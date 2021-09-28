@@ -9,7 +9,7 @@
       <div class="cerca">
         <input 
           type="text"
-          placeholder="Cerca ..."
+          placeholder="Scegli ..."
           v-model="inputText"
           @keyup.enter="$emit('performSearch', inputText)"
         >
@@ -64,6 +64,19 @@ export default {
             }
         }
         
+    }
+    .cerca {
+      width: 400px;
+      height: 50px;
+         input {
+           width: 300px;
+           height: 40px;
+           padding-left: 20px;
+         }
+         button {
+           width: 60px;
+           height: 40px;
+         }
     }
 }
 

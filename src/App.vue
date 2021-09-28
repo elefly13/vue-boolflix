@@ -3,7 +3,7 @@
     <Header @performSearch="searchMovie"/>
     <div class="box_container">
     <div  >
-      <Main  :info="moviesList"/>
+      <Main  :infoMovie="moviesList" :infoSerie="seriesList"/>
     </div>
     </div>
     
@@ -26,6 +26,7 @@ export default {
       APIUrl: "https://api.themoviedb.org/3/search/movie?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       APIUrlTV: "https://api.themoviedb.org/3/search/tv?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       moviesList: [],
+      seriesList: [],
       searchText: "Fast",
     }
   },
@@ -49,8 +50,8 @@ export default {
         .get(this.APIUrlTV+this.searchText)
         .then( result => {
           
-          this.moviesList = result.data.results;
-          console.log(this.moviesList);
+          this.seriesList = result.data.results;
+          console.log(this.seriesList);
         })
     },
     searchMovie(text) {
@@ -58,6 +59,7 @@ export default {
       this.searchText = text;
       console.log(this.searchText);
       this.getMovies();
+      this.getSerieTv();
     }
     
   }

@@ -1,14 +1,18 @@
 <template>
 <div class="box_container">
   <div class="bigbox_card">
-    <div class="box_card" v-for="(inf, index) in info" :key="index">
+   
+    <div class="box_card" v-for="(infoM) in infoMovie" :key="infoM.id">
       
-        <Card :key="index" :dati="inf"/>
+        <Card :key="infoM.id" :item="infoM"  />
+      
+    </div>
+    <div class="box_card" v-for="(infoS) in infoSerie" :key="infoS.id">
+      
+        <Card :key="infoS.id"  :item="infoS" />
       
     </div>
   </div>
-  
-  
 </div>
 
   
@@ -20,8 +24,9 @@ export default {
   name: 'Main',
   components: {
     Card
+    
   },
-  props: ['info']
+  props: ['infoMovie', 'infoSerie']
 }
 
 </script>
@@ -30,13 +35,14 @@ export default {
 <style scoped lang="scss">
 .box_container {
   width: 100vw;
-  height: 90vh;
+  min-height: 90vh;
   margin: auto;
     .bigbox_card {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       width: 100%;
+      height: 100%;
 
     }
 }
