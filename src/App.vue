@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-    <Header @performSearch="searchMovie"/>
-    <div class="box_container">
-    <div  >
-      <Main  :infoMovie="moviesList" :infoSerie="seriesList"/>
-    </div>
-    </div>
+    <header>
+      <Header @performSearch="searchMovie"/>
+    </header>
+    
+    
+    <main >
+      <Main  :infoMovie="moviesList" :infoSerie="seriesList" :infoActors="actorsList"/>
+    </main>
+    
     
   </div>
 </template>
@@ -25,14 +28,17 @@ export default {
     return {
       APIUrl: "https://api.themoviedb.org/3/search/movie?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       APIUrlTV: "https://api.themoviedb.org/3/search/tv?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
+      // APIUrlActor:"https://api.themoviedb.org/3/search/person?api_key=4be4eac11184cea75c396dce4c83f5b5&query=",
       moviesList: [],
       seriesList: [],
+      // actorsList: [],
       searchText: "Fast",
     }
   },
   created() {
     this.getMovies();
     this.getSerieTv();
+    // this.getActors();
   },
  
   methods: {
@@ -54,12 +60,22 @@ export default {
           console.log(this.seriesList);
         })
     },
+    // getActors() {
+    //     axios
+    //     .get(this.APIUrlActor+this.moviesList.id)
+    //     .then( result => {
+          
+    //       this.actorsList = result.data.results;
+    //       console.log(this.actorsList);
+    //     })
+    // },
     searchMovie(text) {
       
       this.searchText = text;
       console.log(this.searchText);
       this.getMovies();
       this.getSerieTv();
+      
     }
     
   }
@@ -69,5 +85,9 @@ export default {
 <style lang="scss">
 @import "./style/general.scss";
 @import "./style/vars.scss";
+
+header {
+  position: relative;
+}
 
 </style>
